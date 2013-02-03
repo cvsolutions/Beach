@@ -1,0 +1,95 @@
+<nav class="top-bar">
+    
+    <!-- topbar -->
+    <ul>
+        <li class="name">
+            <h1><a href="<?php echo $this->url(array('controller' => 'dashboard', 'action' => 'index'), null, true); ?>">Administrator</a></h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+    </ul>
+    
+    <section>
+        
+        <!-- left -->
+        <ul class="left">
+
+            <li class="divider"></li>
+            
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">Lidi</a>
+                <ul class="dropdown">
+                    <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'new'), null, true); ?>">Aggiungi nuovo lido</a></li>
+                    <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'index'), null, true); ?>">Modifica / elimina</a></li>
+                </ul>
+            </li>
+            
+            <li class="divider"></li>
+            
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">Configurazione</a>
+                <ul class="dropdown">
+                    <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'edit'), null, true); ?>">Modifica Profilo</a></li>
+                    <li><a href="/" target="_blank">Anteprima Booking</a></li>
+                </ul>
+            </li>
+            
+            <li class="divider"></li>
+            
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">Calendario</a>
+                <ul class="dropdown">
+                    <li><a href="<?php echo $this->url(array('controller' => 'calendar', 'action' => 'daily'), null, true); ?>">Disponibilit&agrave; giornaliera</a></li>
+                    <li><a href="<?php echo $this->url(array('controller' => 'calendar', 'action' => 'period'), null, true); ?>">Disponibilit&agrave; per periodi</a></li>
+                </ul>
+            </li>
+            
+            <li class="divider"></li>
+            
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">Servizi</a>
+                <ul class="dropdown">
+                    <li><a href="<?php echo $this->url(array('controller' => 'facility', 'action' => 'new'), null, true); ?>">Aggiungi nuovo servizio</a></li>
+                    <li><a href="<?php echo $this->url(array('controller' => 'facility', 'action' => 'index'), null, true); ?>">Modifica / elimina</a></li>
+                </ul>
+            </li>
+            
+            <li class="divider"></li>
+            
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">Offerte Speciali</a>
+                <ul class="dropdown">
+                    <li><a href="<?php echo $this->url(array('controller' => 'offers', 'action' => 'new'), null, true); ?>">Aggiungi nuovo pacchetto</a></li>
+                    <li><a href="<?php echo $this->url(array('controller' => 'offers', 'action' => 'index'), null, true); ?>">Modifica / elimina</a></li>
+                </ul>
+            </li>
+            
+            <li class="divider"></li>
+            
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">Prenotazioni</a>
+                <ul class="dropdown">
+                    <li><a href="<?php echo $this->url(array('controller' => 'reservations', 'action' => 'index'), null, true); ?>">In arrivo oggi</a></li>
+                    <li><a href="<?php echo $this->url(array('controller' => 'reservations', 'action' => 'search'), null, true); ?>">Ricerca avanzata</a></li>
+                </ul>
+            </li>
+            
+            <li class="divider hide-for-small"></li>
+        </ul>
+        
+        <!-- right -->
+        <ul class="right">
+            <li class="divider show-for-medium-and-up"></li>
+            <li><a data-reveal-id="LogoutModal" href="javascript:void(0)">Logout</a></li>
+        </ul>
+    
+    </section>
+    
+</nav>
+
+<!-- LogoutModal -->
+<div id="LogoutModal" class="reveal-modal">
+    <h2>Esegui Logout</h2>
+    <p class="lead">Sei sicuro di voler abbandonare la sessione?</p>
+    <a href="<?php echo $this->url(array('controller' => 'login', 'action' => 'logout'), null, true); ?>" class="secondary button">Esci</a>
+    <a class="close-reveal-modal">&#215;</a>
+</div>

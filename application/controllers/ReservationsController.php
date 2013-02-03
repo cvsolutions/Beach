@@ -13,6 +13,20 @@ class ReservationsController extends Zend_Controller_Action
         // action body
     }
 
+    public function detailAction()
+    {
+        // action body
+    }
+
+    public function searchAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
 

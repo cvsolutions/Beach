@@ -3,23 +3,32 @@
 class LoginController extends Zend_Controller_Action
 {
 
+    private $_form = null;
+
     public function init()
     {
-        /* Initialize action controller here */
+        $this->_form = new Application_Form_Auth();
     }
 
     public function indexAction()
     {
-        // action body
+        $this->view->html_form = $this->_form->login();
     }
 
     public function lostpasswordAction()
+    {
+        $this->view->html_form = $this->_form->lost_password();
+    }
+
+    public function logoutAction()
     {
         // action body
     }
 
 
 }
+
+
 
 
 

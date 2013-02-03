@@ -13,6 +13,20 @@ class CalendarController extends Zend_Controller_Action
         // action body
     }
 
+    public function dailyAction()
+    {
+        // action body
+    }
+
+    public function periodAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
 

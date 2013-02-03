@@ -1,4 +1,38 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Offers</b> and script/action name <b>index</b></p>
+<?php $this->layout()->setLayout('admin'); ?>
+
+<?php echo $this->render('global/topbar_admin.phtml'); ?>
+
+<div class="row">
+	<div class="twelve columns">
+	    <h1 class="subheader">Offerte Speciali</h1>
+	    <p>...</p>
+	    <hr />
+	</div>
 </div>
+
+<div class="row">
+	<div class="twelve columns">
+		<table class="twelve">
+			<thead>
+				<tr>
+					<th>Modifica</th>
+					<th>Cancella</th>
+					<th>Offerta</th>
+					<th>Stato</th>
+					<th>Data</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="<?php echo $this->url(array('controller' => 'offers', 'action' => 'edit', 'id' => 0)); ?>" class="button">Modifica</a></td>
+					<td><a href="<?php echo $this->url(array('controller' => 'offers', 'action' => 'delete', 'id' => 0)); ?>" class="button">Cancella</a></td>
+					<td>...</td>
+					<td>...</td>
+					<td>...</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<?php echo $this->render('global/copyright_admin.phtml'); ?>

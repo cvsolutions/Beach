@@ -1,0 +1,38 @@
+<?php $this->layout()->setLayout('admin'); ?>
+
+<?php echo $this->render('global/topbar_admin.phtml'); ?>
+
+<div class="row">
+	<div class="twelve columns">
+	    <h1 class="subheader">Lidi</h1>
+	    <p>...</p>
+	    <hr />
+	</div>
+</div>
+
+<div class="row">
+	<div class="twelve columns">
+		<table class="twelve">
+			<thead>
+				<tr>
+					<th>Modifica</th>
+					<th>Cancella</th>
+					<th>Stabilimento Balneare</th>
+					<th>Account</th>
+					<th>Registrazione</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'fulledit', 'id' => 0)); ?>" class="button">Modifica</a></td>
+					<td><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'delete', 'id' => 0)); ?>" class="button">Cancella</a></td>
+					<td>...</td>
+					<td>...</td>
+					<td>...</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<?php echo $this->render('global/copyright_admin.phtml'); ?>
