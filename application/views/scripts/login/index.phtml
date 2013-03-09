@@ -3,8 +3,15 @@
 <div class="row">
 	<div class="six columns centered">
 		<h2>Spiaggia Online <span class="round label">v 1.0</span></h2>
-		<p>Administrator Reserved: please Login to manage site.</p>
+		<p>Administrator Reserved: please Login to manage booking.</p>
 		<hr />
+
+		<?php if ($this->loginError): ?>
+			<div class="alert-box alert">
+				<?php echo $this->loginError; ?><a href="" class="close">&times;</a>
+			</div>
+		<?php endif ?>
+
 		<!-- Login Form -->
 		<?php echo $this->html_form; ?>
 	</div>
