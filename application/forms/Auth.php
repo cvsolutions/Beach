@@ -13,7 +13,15 @@
 */
 class Application_Form_Auth extends Zend_Form
 {
+    /**
+     * $_errors_class
+     *
+     * @var string
+     *
+     * @access private
+     */
     private $_errors_class = 'disc errors';
+    
     /**
      * init
      * 

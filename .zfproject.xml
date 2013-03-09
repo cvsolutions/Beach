@@ -14,6 +14,7 @@
         <controllerFile controllerName="Login">
           <actionMethod actionName="index"/>
           <actionMethod actionName="lostpassword"/>
+          <actionMethod actionName="notauthorized"/>
         </controllerFile>
         <controllerFile controllerName="Calendar">
           <actionMethod actionName="index"/>
@@ -27,10 +28,20 @@
         <controllerFile controllerName="Reservations">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Settings">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="dashboard"/>
+          <actionMethod actionName="logout"/>
+          <actionMethod actionName="notauthorized"/>
+        </controllerFile>
       </controllersDirectory>
-      <formsDirectory enabled="false"/>
+      <formsDirectory enabled="false">
+        <formFile formName="Settings"/>
+      </formsDirectory>
       <layoutsDirectory enabled="false"/>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <modelFile modelName="LibraryAcl"/>
+      </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
       <viewsDirectory>
@@ -58,6 +69,21 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Login">
             <viewScriptFile forActionName="lostpassword"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="dashboard"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Settings">
+            <viewScriptFile forActionName="notauthorized"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Login">
+            <viewScriptFile forActionName="notauthorized"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

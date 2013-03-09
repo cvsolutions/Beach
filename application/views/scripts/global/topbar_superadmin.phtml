@@ -1,0 +1,45 @@
+<nav class="top-bar">
+    
+    <!-- topbar -->
+    <ul>
+        <li class="name">
+            <h1><a href="<?php echo $this->url(array('controller' => 'settings', 'action' => 'index'), null, true); ?>">Administrator</a></h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+    </ul>
+    
+    <section>
+        
+        <!-- left -->
+        <ul class="left">
+
+            <li class="divider"></li>
+            
+            <li class="has-dropdown">
+                <a href="javascript:void(0)">Gestione Lidi</a>
+                <ul class="dropdown">
+                    <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'new'), null, true); ?>">Aggiungi nuovo lido</a></li>
+                    <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'index'), null, true); ?>">Modifica / elimina</a></li>
+                </ul>
+            </li>
+            
+            <li class="divider hide-for-small"></li>
+        </ul>
+        
+        <!-- right -->
+        <ul class="right">
+            <li class="divider show-for-medium-and-up"></li>
+            <li><a data-reveal-id="LogoutModal" href="javascript:void(0)">Logout</a></li>
+        </ul>
+    
+    </section>
+    
+</nav>
+
+<!-- LogoutModal -->
+<div id="LogoutModal" class="reveal-modal">
+    <h2>Esegui Logout</h2>
+    <p class="lead">Sei sicuro di voler abbandonare la sessione?</p>
+    <a href="<?php echo $this->url(array('controller' => 'settings', 'action' => 'logout'), null, true); ?>" class="secondary button">Esci</a>
+    <a class="close-reveal-modal">&#215;</a>
+</div>
