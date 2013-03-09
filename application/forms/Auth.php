@@ -228,13 +228,13 @@ class Application_Form_Auth extends Zend_Form
      */
     public function edit_beach()
     {
-        $name = new Zend_Form_Element_Text('name');
-        $name->setLabel('Stabilimento Balneare');
-        $name->setRequired(true);
-        $name->addValidator('NotEmpty');
-        $name->setAttrib('class', 'span5');
-        $name->addFilters(array('StringTrim', 'StripTags'));
-        $name->setDecorators(array('ViewHelper', 'Errors', 'label'));
+        $fullname = new Zend_Form_Element_Text('fullname');
+        $fullname->setLabel('Stabilimento Balneare');
+        $fullname->setRequired(true);
+        $fullname->addValidator('NotEmpty');
+        $fullname->setAttrib('class', 'span5');
+        $fullname->addFilters(array('StringTrim', 'StripTags'));
+        $fullname->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $address = new Zend_Form_Element_Text('address');
         $address->setLabel('Indirizzo');
@@ -294,7 +294,7 @@ class Application_Form_Auth extends Zend_Form
         $submit->setLabel('Salva');
         $submit->setDecorators(array('ViewHelper', array('HtmlTag', array('tag' => 'p'))));
 
-        return $this->addElements(array($name, $address, $phone, $usermail, $pwd, $domain, $umbrellas, $rows, $policy, $submit));
+        return $this->addElements(array($fullname, $address, $phone, $usermail, $pwd, $domain, $umbrellas, $rows, $policy, $submit));
     }
 
 

@@ -7,38 +7,38 @@
                 <a class="brand" href="<?php echo $this->url(array('controller' => 'dashboard', 'action' => 'index'), null, true); ?>">Administrator</a>
                 <ul class="nav">
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Configurazione <b class="caret"></b></a>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-wrench icon-white"></i> Configurazione <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'edit'), null, true); ?>"><i class="icon-plus"></i> Modifica Profilo</a></li>
-                            <li><a href="/"><i class="icon-pencil"></i> Anteprima Booking</a></li>
+                            <li><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'edit'), null, true); ?>"><i class="icon-user"></i> Modifica Profilo</a></li>
+                            <li><a href="/"><i class="icon-home"></i> Anteprima Booking</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Calendario <b class="caret"></b></a>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-calendar icon-white"></i> Calendario <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->url(array('controller' => 'calendar', 'action' => 'daily'), null, true); ?>"><i class="icon-plus"></i> Disponibilit&agrave; giornaliera</a></li>
-                            <li><a href="<?php echo $this->url(array('controller' => 'calendar', 'action' => 'period'), null, true); ?>"><i class="icon-pencil"></i> Disponibilit&agrave; per periodi</a></li>
+                            <li><a href="<?php echo $this->url(array('controller' => 'calendar', 'action' => 'daily'), null, true); ?>"><i class="icon-th"></i> Disponibilit&agrave; giornaliera</a></li>
+                            <li><a href="<?php echo $this->url(array('controller' => 'calendar', 'action' => 'period'), null, true); ?>"><i class="icon-th-list"></i> Disponibilit&agrave; per periodi</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Servizi <b class="caret"></b></a>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-list-alt icon-white"></i> Servizi <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $this->url(array('controller' => 'facility', 'action' => 'new'), null, true); ?>"><i class="icon-plus"></i> Aggiungi nuovo servizio</a></li>
                             <li><a href="<?php echo $this->url(array('controller' => 'facility', 'action' => 'index'), null, true); ?>"><i class="icon-pencil"></i> Modifica / elimina</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user icon-white"></i> Offerte <b class="caret"></b></a>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-gift icon-white"></i> Offerte <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $this->url(array('controller' => 'offers', 'action' => 'new'), null, true); ?>#"><i class="icon-plus"></i> Aggiungi nuovo pacchetto</a></li>
                             <li><a href="<?php echo $this->url(array('controller' => 'offers', 'action' => 'index'), null, true); ?>"><i class="icon-pencil"></i> Modifica / elimina</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-book icon-white"></i> Prenotazioni <b class="caret"></b></a>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-bell icon-white"></i> Prenotazioni <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->url(array('controller' => 'reservations', 'action' => 'index'), null, true); ?>"><i class="icon-plus"></i> In arrivo oggi</a></li>
-                            <li><a href="<?php echo $this->url(array('controller' => 'reservations', 'action' => 'search'), null, true); ?>"><i class="icon-pencil"></i> Ricerca avanzata</a></li>
+                            <li><a href="<?php echo $this->url(array('controller' => 'reservations', 'action' => 'index'), null, true); ?>"><i class="icon-refresh"></i> In arrivo oggi</a></li>
+                            <li><a href="<?php echo $this->url(array('controller' => 'reservations', 'action' => 'search'), null, true); ?>"><i class="icon-search"></i> Ricerca avanzata</a></li>
                         </ul>
                     </li>
                 </ul>

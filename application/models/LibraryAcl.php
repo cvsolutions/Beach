@@ -39,6 +39,8 @@ class Application_Model_LibraryAcl extends Zend_Acl
 		$this->add(new Zend_Acl_Resource('settings'));
 		$this->add(new Zend_Acl_Resource('dashboard'));
 		$this->add(new Zend_Acl_Resource('user'));
+		$this->add(new Zend_Acl_Resource('facility'));
+		$this->add(new Zend_Acl_Resource('offers'));
 
 
 		/** assign privileges */
@@ -51,6 +53,8 @@ class Application_Model_LibraryAcl extends Zend_Acl
 
 		$this->allow('user', 'dashboard', array('index', 'logout'));
 		$this->allow('user', 'user', array('edit', 'logout'));
+		$this->allow('user', 'facility', array('index', 'new'));
+		$this->allow('user', 'offers', array('index', 'new'));
 
 	}
 

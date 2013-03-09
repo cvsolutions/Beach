@@ -114,7 +114,48 @@ class UserController extends Zend_Controller_Action
 
     public function editAction()
     {
+        $auth = Zend_Auth::getInstance();
+        $identity = $auth->getStorage()->read();
+        $row = $this->_dbAuth->Detail_Auth_Admin($identity->id);
+        $old_pwd = $row['pwd'];
+        $row['pwd'] = '';
+        
         $this->view->html_form = $this->_form->edit_beach();
+        $this->_form->usermail->addValidator(new Zend_Validate_Db_NoRecordExists(
+            'beach_auth',
+            'usermail', array(
+                'field' => 'id',
+                'value' => $identity->id
+                )));
+
+        $form_data = $this->getRequest()->getPost();
+
+        if($form_data)
+        {
+            if($this->_form->isValid($form_data))
+            {
+                $this->_dbAuth->Edit_Auth($identity->id, array(
+                    'fullname'  => $this->_form->getValue('fullname'),
+                    'address'   => $this->_form->getValue('address'),
+                    'phone'     => $this->_form->getValue('phone'),
+                    'usermail'  => $this->_form->getValue('usermail'),
+                    'pwd'       => $this->_form->getValue('pwd') != NULL ? sha1($this->_form->getValue('pwd')) : $old_pwd,
+                    'domain'    => $this->_form->getValue('domain'),
+                    'umbrellas' => $this->_form->getValue('umbrellas'),
+                    'policy'    => $this->_form->getValue('policy')
+                    ));
+                $this->view->html_success = $this->_confirm;
+                $this->view->headMeta()->appendHttpEquiv('refresh', '1; url=/dashboard');
+
+            } else {
+
+                $this->_form->populate($form_data);
+            }
+
+        } else {
+
+            $this->_form->populate($row);
+        }
     }
 
 
