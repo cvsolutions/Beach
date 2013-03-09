@@ -1,18 +1,30 @@
-<?php $this->layout()->setLayout('admin'); ?>
+<?php $this->layout()->setLayout('superadmin'); ?>
 
-<?php echo $this->render('global/topbar_admin.phtml'); ?>
+<?php echo $this->render('global/topbar_superadmin.phtml'); ?>
 
 <div class="row">
-	<div class="twelve columns">
-	    <h1 class="subheader">Modifica Struttura</h1>
-	    <p>...</p>
-	    <hr />
+	<div class="span12">
+		<h1>Modifica Struttura</h1>
+		<p>...</p>
+		<hr />
 	</div>
 </div>
 
+<?php if ($this->html_success): ?>
+	<div class="row">
+		<div class="span12">
+			<div class="alert alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->html_success; ?>
+			</div>
+		</div>
+	</div>
+<?php endif ?>
+
+
 <div class="row">
-	<div class="seven columns">
-	    <?php echo $this->html_form; ?>
+	<div class="span12">
+		<?php echo $this->html_form; ?>
 	</div>
 </div>
 

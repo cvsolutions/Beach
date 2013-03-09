@@ -8,13 +8,14 @@ class LoginController extends Zend_Controller_Action
     public function init()
     {
         $this->_form = new Application_Form_Auth();
+        $this->_form->setDecorators(array('FormElements', 'Form'));
     }
 
     public function indexAction()
     {
         $this->view->html_form = $this->_form->login();
         $auth = Zend_Auth::getInstance();
-        if($auth->hasIdentity()) $this->redirect( '/dashboard' );
+        if($auth->hasIdentity()) $this->redirect('/dashboard');
         $form_data = $this->getRequest()->getPost();
 
         if($form_data)
@@ -42,7 +43,7 @@ class LoginController extends Zend_Controller_Action
 
                 } else {
 
-                    $this->view->loginError = 'Indirizzo E-mail o Password non validi';
+                    $this->view->html_error = 'Indirizzo E-mail o Password non validi';
                 }
 
             } else {
@@ -59,7 +60,9 @@ class LoginController extends Zend_Controller_Action
 
     public function logoutAction()
     {
-        // action body
+        Zend_Auth::getInstance()->clearIdentity();
+        session_destroy();
+        $this->redirect('/');
     }
 
     public function notauthorizedAction()

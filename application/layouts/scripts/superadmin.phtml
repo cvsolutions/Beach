@@ -1,23 +1,24 @@
-<!DOCTYPE HTML>
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<html lang="en-US">
+<!doctype html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<?php echo $this->headMeta(); ?>
 	<title>Spiaggia Online 1.0 - Administrator</title>
-	<meta name="viewport" content="width=device-width" />
-	<link rel="stylesheet" href="/stylesheets/foundation.min.css" />
-	<link rel="stylesheet" href="/stylesheets/admin.css" />
-	<script src="/javascripts/modernizr.foundation.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/bootstrap-admin.css">
+	<link rel="stylesheet" href="/css/bootstrap-dataTables.css">
 </head>
 
 <body>
 
-    <?php echo $this->layout()->content; ?>
+	<div class="container">
+		<?php echo $this->layout()->content; ?>
+	</div>
 	
-	<!-- javascripts -->
-	<script src="/javascripts/jquery.js"></script>
-	<script src="/javascripts/foundation.min.js"></script>
-	<script src="/javascripts/app.js"></script>
+	<script src="/js/jquery.js"></script>
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/jquery.dataTables.js"></script>
+	<script src="/js/bootstrap.dataTables.js"></script>
+	<script src="/js/superadmin.jquery.js"></script>
 </body>
 </html>

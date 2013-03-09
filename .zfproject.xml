@@ -41,6 +41,9 @@
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
         <modelFile modelName="LibraryAcl"/>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Auth"/>
+        </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>

@@ -1,0 +1,13 @@
+[class*="span"].centred {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+.errors{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	color: #cc0000;
+	font-size: 15px;
+	margin-bottom: 10px;
+}

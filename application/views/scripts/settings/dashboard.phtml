@@ -3,10 +3,11 @@
 <?php echo $this->render('global/topbar_superadmin.phtml'); ?>
 
 <div class="row">
-	<div class="twelve columns">
-	    <h1 class="subheader">Dashboard</h1>
-	    <p class="lead">Benvenuto, <b><?php echo $this->identity->fullname; ?></b></p>
-	    <hr />
+	<div class="span6">
+		<h1>Benvenuto <small><?php echo $this->identity->fullname; ?></small></h1>
+	</div>
+	<div class="span6">
+		<a class="btn pull-right" href="add"><i class="icon-plus"></i> Aggiungi un nuovo account</a>
 	</div>
 </div>
 

@@ -1,18 +1,26 @@
 <?php $this->layout()->setLayout('admin'); ?>
 
+<br>
 <div class="row">
-	<div class="six columns centered">
-		<h2>Spiaggia Online <span class="round label">v 1.0</span></h2>
-		<p>Administrator Reserved: please Login to manage booking.</p>
-		<hr />
+	<div class="span8 centred">
 
-		<?php if ($this->loginError): ?>
-			<div class="alert-box alert">
-				<?php echo $this->loginError; ?><a href="" class="close">&times;</a>
+		<div class="hero-unit">
+			
+			<h2>Spiaggia Online <span class="label label-warning">v 1.0</span></h2>
+			<p>Administrator Reserved: please Login to manage booking.</p>
+			<hr />
+
+			<?php if ($this->html_error): ?>
+			<div class="alert alert-error">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->html_error; ?>
 			</div>
-		<?php endif ?>
+			<?php endif ?>
 
-		<!-- Login Form -->
-		<?php echo $this->html_form; ?>
+			<!-- Login Form -->
+			<?php echo $this->html_form; ?>
+
+		</div>
+
 	</div>
 </div>

@@ -3,16 +3,18 @@
 <?php echo $this->render('global/topbar_superadmin.phtml'); ?>
 
 <div class="row">
-	<div class="twelve columns">
-	    <h1 class="subheader">Lidi</h1>
+	<div class="span6">
+		<h1>Gestione Lidi</h1>
 	    <p>...</p>
-	    <hr />
+	</div>
+	<div class="span6">
+		<a class="btn pull-right" href="<?php echo $this->url(array('controller' => 'user', 'action' => 'new')); ?>"><i class="icon-plus"></i> Aggiungi un nuovo Lido</a>
 	</div>
 </div>
 
 <div class="row">
-	<div class="twelve columns">
-		<table class="twelve">
+	<div class="span12">
+		<table id="data_tables" class="table table-striped table-bordered">
 			<thead>
 				<tr>
 					<th>Modifica</th>
@@ -23,13 +25,15 @@
 				</tr>
 			</thead>
 			<tbody>
+				<?php foreach ($this->full as $row): ?>
 				<tr>
-					<td><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'fulledit', 'id' => 0)); ?>" class="button">Modifica</a></td>
-					<td><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'delete', 'id' => 0)); ?>" class="button">Cancella</a></td>
-					<td>...</td>
-					<td>...</td>
-					<td>...</td>
+					<td><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'fulledit', 'id' => $row['id'])); ?>" class="btn">Modifica</a></td>
+					<td><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'delete', 'id' => $row['id'])); ?>" class="btn">Cancella</a></td>
+					<td><?php echo $row['fullname']; ?></td>
+					<td><img src="/img/<?php echo $row['status']; ?>.png" alt=""></td>
+					<td><?php echo $row['entry']; ?></td>
 				</tr>
+				<?php endforeach ?>
 			</tbody>
 		</table>
 	</div>

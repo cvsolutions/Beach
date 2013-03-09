@@ -14,15 +14,6 @@
 class Application_Form_Settings extends Zend_Form
 {
     /**
-     * $_errors_class
-     *
-     * @var string
-     *
-     * @access private
-     */
-	private $_errors_class = 'disc errors';
-
-    /**
      * init
      * 
      * @access public
@@ -31,7 +22,7 @@ class Application_Form_Settings extends Zend_Form
      */
 	public function init()
 	{
-		$this->setAttrib('class', 'custom');
+		$this->setAttrib('class', '');
 	}
 
     /**
@@ -48,26 +39,27 @@ class Application_Form_Settings extends Zend_Form
         $usermail->setRequired(true);
         $usermail->addValidator('NotEmpty');
         $usermail->addValidator('EmailAddress');
+        $usermail->setAttrib('class', 'span5');
         $usermail->addFilters(array('StringTrim', 'StripTags'));
-        $usermail->addDecorator('Errors', array('class' => $this->_errors_class));
-
+        $usermail->setDecorators(array('ViewHelper', 'Errors', 'label'));
+        
 		$pwd = new Zend_Form_Element_Password('pwd');
 		$pwd->setLabel('Password');
 		$pwd->setRequired(true);
 		$pwd->addValidator('NotEmpty');
 		$pwd->addFilters(array('StringTrim', 'StripTags'));
-		$pwd->addDecorator('Errors', array('class' => $this->_errors_class));
+        $pwd->setAttrib('class', 'span5');
+        $pwd->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
 		$token = new Zend_Form_Element_Hash('hash', 'no_csrf_foo', array('salt' => 'unique'));
-		$token->setDecorators(array(
-			array(
-				'ViewHelper', array('helper' => 'formHidden')
-				)));
+		$token->setDecorators(array(array('ViewHelper', array('helper' => 'formHidden'))));
 
 		$submit = new Zend_Form_Element_Submit('submit');
-		$submit->setLabel('Login');
-		$submit->setAttrib('class', 'button');
-
+		$submit->setAttrib('class', 'btn btn-large btn-primary');
+        $submit->setLabel('Login');
+        $submit->setDecorators(array('ViewHelper', array('HtmlTag', array('tag' => 'p'))));
+        // $submit->removeDecorator('DtDdWrapper');
+        
 		return $this->addElements(array($usermail, $pwd, $token, $submit));
 	}
 

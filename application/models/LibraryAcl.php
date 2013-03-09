@@ -44,10 +44,13 @@ class Application_Model_LibraryAcl extends Zend_Acl
 		/** assign privileges */
 		$this->allow('guest', array('index', 'error'));
 		$this->allow('guest', 'settings', array('index', 'notauthorized'));
-		$this->allow('guest', 'login', array('index', 'notauthorized'));
+		$this->allow('guest', 'login', array('index', 'logout', 'lostpassword', 'notauthorized'));
 
 		$this->allow('admin', 'settings', array('index', 'dashboard', 'logout'));
-		$this->allow('admin', 'user', array('index', 'new', ''));
+		$this->allow('admin', 'user', array('index', 'new', 'fulledit', 'delete'));
+
+		$this->allow('user', 'dashboard', array('index', 'logout'));
+		$this->allow('user', 'user', array('edit', 'logout'));
 
 	}
 
