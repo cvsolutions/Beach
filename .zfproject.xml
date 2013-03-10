@@ -43,6 +43,8 @@
         <modelFile modelName="LibraryAcl"/>
         <dbTableDirectory>
           <dbTableFile dbTableName="Auth"/>
+          <dbTableFile dbTableName="Facility"/>
+          <dbTableFile dbTableName="Offers"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>

@@ -3,16 +3,27 @@
 <?php echo $this->render('global/topbar_admin.phtml'); ?>
 
 <div class="row">
-	<div class="twelve columns">
-	    <h1 class="subheader">Modifica Servizi</h1>
+	<div class="span12">
+	    <h1>Modifica Servizi</h1>
 	    <p>...</p>
 	    <hr />
 	</div>
 </div>
 
+<?php if ($this->html_success): ?>
+	<div class="row">
+		<div class="span12">
+			<div class="alert alert-success">
+			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+			  <?php echo $this->html_success; ?>
+			</div>
+		</div>
+	</div>
+<?php endif ?>
+
 <div class="row">
-	<div class="seven columns">
-	    <?php echo $this->html_form; ?>
+	<div class="span12">
+		<?php echo $this->html_form; ?>
 	</div>
 </div>
 

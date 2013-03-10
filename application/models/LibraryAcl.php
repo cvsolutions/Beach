@@ -5,11 +5,11 @@
 *
 * @uses     Zend_Acl
 *
-* @category Category
-* @package  Package
-* @author    <>
-* @license  
-* @link     
+* @category ACL Role / Resource
+* @package  Spiaggia Online
+* @author   Concetto Vecchio <info@cvsolutions.it>
+* @license  GPL
+* @link     http://www.gnu.org/licenses/gpl.html
 */
 class Application_Model_LibraryAcl extends Zend_Acl
 {
@@ -41,7 +41,7 @@ class Application_Model_LibraryAcl extends Zend_Acl
 		$this->add(new Zend_Acl_Resource('user'));
 		$this->add(new Zend_Acl_Resource('facility'));
 		$this->add(new Zend_Acl_Resource('offers'));
-
+		$this->add(new Zend_Acl_Resource('calendar'));
 
 		/** assign privileges */
 		$this->allow('guest', array('index', 'error'));
@@ -53,8 +53,9 @@ class Application_Model_LibraryAcl extends Zend_Acl
 
 		$this->allow('user', 'dashboard', array('index', 'logout'));
 		$this->allow('user', 'user', array('edit', 'logout'));
-		$this->allow('user', 'facility', array('index', 'new'));
-		$this->allow('user', 'offers', array('index', 'new'));
+		$this->allow('user', 'facility', array('index', 'new', 'edit', 'delete'));
+		$this->allow('user', 'offers', array('index', 'new', 'edit', 'delete'));
+		$this->allow('user', 'calendar', array('daily', 'period'));
 
 	}
 

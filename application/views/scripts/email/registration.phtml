@@ -2,11 +2,11 @@
 
 <div class="row">
 	<div class="twelve columns">
-		<p>Gentile <?php echo $this->params['fullname']; ?>, ecco le credenziali per accedere al pannello di controllo del suo Booking.</p>
+		<p>Gentile <?php echo $this->escape($this->params['fullname']); ?>, ecco le credenziali per accedere al pannello di controllo del suo Booking.</p>
 		<ul>
 			<li><a href="<?php echo $this->serverUrl(); ?><?php echo $this->url(array('controller' => 'login', 'action' => 'index')); ?>"></a><?php echo $this->serverUrl(); ?><?php echo $this->url(array('controller' => 'login', 'action' => 'index')); ?></li>
-			<li>Indirizzo Email: <?php echo $this->params['usermail']; ?></li>
-			<li>Password: <?php echo $this->params['pwd']; ?></li>
+			<li>Indirizzo Email: <?php echo $this->escape($this->params['usermail']); ?></li>
+			<li>Password: <?php echo $this->escape($this->params['pwd']); ?></li>
 		</ul>
 	</div>
 </div>

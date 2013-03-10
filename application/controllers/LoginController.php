@@ -4,6 +4,7 @@ class LoginController extends Zend_Controller_Action
 {
 
     private $_form = null;
+    private $_confirm = 'OK';
 
     public function init()
     {
@@ -13,7 +14,7 @@ class LoginController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $this->view->html_form = $this->_form->login();
+        $this->view->html_form = $this->_form->Login();
         $auth = Zend_Auth::getInstance();
         if($auth->hasIdentity()) $this->redirect('/dashboard');
         $form_data = $this->getRequest()->getPost();
@@ -55,7 +56,39 @@ class LoginController extends Zend_Controller_Action
 
     public function lostpasswordAction()
     {
-        $this->view->html_form = $this->_form->lost_password();
+        $this->view->html_form = $this->_form->Lost_Password();
+        $form_data = $this->getRequest()->getPost();
+        $pwd = rand();
+
+        if($form_data)
+        {
+            if($this->_form->isValid($form_data))
+            {
+                $usermail = $this->_form->getValue('usermail');
+                $this->_dbAuth = new Application_Model_DbTable_Auth();
+                $row = $this->_dbAuth->Check_Email($usermail);
+
+                $this->_dbAuth->Edit_Auth($row['id'], array('pwd' => sha1($pwd)));
+
+                Plugin_Mail::Send(array(
+                    'email'    => $usermail,
+                    'subject'  => 'Nuove Credenziali portale',
+                    'template' => 'registration.phtml',
+                    'params'   => array(
+                        'fullname' => $row['fullname'],
+                        'usermail' => $row['usermail'],
+                        'pwd'      => $pwd
+                        )
+                    ));
+
+                $this->view->html_success = $this->_confirm;
+                $this->view->headMeta()->appendHttpEquiv('refresh', '1; url=/login');
+
+            } else {
+
+                $this->_form->populate($form_data);
+            }
+        }
     }
 
     public function logoutAction()

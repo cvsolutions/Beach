@@ -5,11 +5,11 @@
 *
 * @uses     Zend_Controller_Plugin_Abstract
 *
-* @category Category
-* @package  Package
-* @author    <>
-* @license  
-* @link     
+* @category Access Check
+* @package  Spiaggia Online
+* @author   Concetto Vecchio <info@cvsolutions.it>
+* @license  GPL
+* @link     http://www.gnu.org/licenses/gpl.html
 */
 class Plugin_AccessCheck extends Zend_Controller_Plugin_Abstract
 {
@@ -74,6 +74,4 @@ class Plugin_AccessCheck extends Zend_Controller_Plugin_Abstract
             $request->setActionName('notauthorized');
         }
     }
-
-
 }

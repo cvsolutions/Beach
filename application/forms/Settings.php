@@ -20,48 +20,46 @@ class Application_Form_Settings extends Zend_Form
      *
      * @return mixed Value.
      */
-	public function init()
-	{
-		$this->setAttrib('class', '');
-	}
+    public function init()
+    {
+        $this->setAttrib('class', '');
+    }
 
     /**
-     * login
+     * Login
      * 
      * @access public
      *
      * @return mixed Value.
      */
-	public function login()
-	{
-		$usermail = new Zend_Form_Element_Text('usermail');
+    public function Login()
+    {
+        $usermail = new Zend_Form_Element_Text('usermail');
         $usermail->setLabel('Indirizzo Email');
         $usermail->setRequired(true);
-        $usermail->addValidator('NotEmpty');
         $usermail->addValidator('EmailAddress');
         $usermail->setAttrib('class', 'span5');
         $usermail->addFilters(array('StringTrim', 'StripTags'));
         $usermail->setDecorators(array('ViewHelper', 'Errors', 'label'));
         
-		$pwd = new Zend_Form_Element_Password('pwd');
-		$pwd->setLabel('Password');
-		$pwd->setRequired(true);
-		$pwd->addValidator('NotEmpty');
-		$pwd->addFilters(array('StringTrim', 'StripTags'));
+        $pwd = new Zend_Form_Element_Password('pwd');
+        $pwd->setLabel('Password');
+        $pwd->setRequired(true);
+        $pwd->addFilters(array('StringTrim', 'StripTags'));
         $pwd->setAttrib('class', 'span5');
         $pwd->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
-		$token = new Zend_Form_Element_Hash('hash', 'no_csrf_foo', array('salt' => 'unique'));
-		$token->setDecorators(array(array('ViewHelper', array('helper' => 'formHidden'))));
+        $token = new Zend_Form_Element_Hash('hash', 'no_csrf_foo', array('salt' => 'unique'));
+        $token->setDecorators(array(array('ViewHelper', array('helper' => 'formHidden'))));
 
-		$submit = new Zend_Form_Element_Submit('submit');
-		$submit->setAttrib('class', 'btn btn-large btn-primary');
+        $submit = new Zend_Form_Element_Submit('submit');
+        $submit->setAttrib('class', 'btn btn-large btn-primary');
         $submit->setLabel('Login');
         $submit->setDecorators(array('ViewHelper', array('HtmlTag', array('tag' => 'p'))));
         // $submit->removeDecorator('DtDdWrapper');
         
-		return $this->addElements(array($usermail, $pwd, $token, $submit));
-	}
+        return $this->addElements(array($usermail, $pwd, $token, $submit));
+    }
 
 
 }

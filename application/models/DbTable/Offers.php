@@ -1,17 +1,17 @@
 <?php
 
 /**
-* Application_Model_DbTable_Auth
+* Application_Model_DbTable_Offers
 *
 * @uses     Zend_Db_Table_Abstract
 *
-* @category DbTable auth
+* @category DbTable offers
 * @package  Spiaggia Online
 * @author   Concetto Vecchio <info@cvsolutions.it>
 * @license  GPL
 * @link     http://www.gnu.org/licenses/gpl.html
 */
-class Application_Model_DbTable_Auth extends Zend_Db_Table_Abstract
+class Application_Model_DbTable_Offers extends Zend_Db_Table_Abstract
 {
 
     /**
@@ -21,7 +21,7 @@ class Application_Model_DbTable_Auth extends Zend_Db_Table_Abstract
      *
      * @access protected
      */
-    protected $_name = 'beach_auth';
+    protected $_name = 'beach_offers';
 
     /**
      * $_primary
@@ -33,49 +33,36 @@ class Application_Model_DbTable_Auth extends Zend_Db_Table_Abstract
     protected $_primary = 'id';
 
     /**
-     * Detail_Auth_Admin
+     * Detail_Offers
      * 
-     * @param mixed $id Description.
+     * @param mixed $id ID.
      *
      * @access public
      *
      * @return mixed Value.
      */
-    public function Detail_Auth_Admin($id)
+    public function Detail_Offers($id)
     {
-    	$row = $this->fetchRow(sprintf('id = %d', $id));
+        $row = $this->fetchRow(sprintf('id = %d', $id));
         return $row->toArray();
     }
 
     /**
-     * Check_Email
+     * Full_Auth_Offers
      * 
-     * @param mixed $email Usermail.
+     * @param mixed $auth ID beach.
      *
      * @access public
      *
      * @return mixed Value.
      */
-    public function Check_Email($email)
+    public function Full_Auth_Offers($auth)
     {
-        $row = $this->fetchRow(sprintf("usermail = '%s' AND status = 1", $email));
-        return $row->toArray();
+        return $this->fetchAll(sprintf('auth = %d', $auth));
     }
 
     /**
-     * Full_Auth
-     * 
-     * @access public
-     *
-     * @return mixed Value.
-     */
-    public function Full_Auth()
-    {
-        return $this->fetchAll();
-    }
-
-    /**
-     * New_Auth
+     * New_Offers
      * 
      * @param mixed $fields _POST data.
      *
@@ -83,13 +70,13 @@ class Application_Model_DbTable_Auth extends Zend_Db_Table_Abstract
      *
      * @return mixed Value.
      */
-    public function New_Auth($fields)
+    public function New_Offers($fields)
     {
     	return $this->insert($fields);
     }
 
     /**
-     * Edit_Auth
+     * Edit_Offers
      * 
      * @param mixed $id     ID.
      * @param mixed $fields _POST data.
@@ -98,11 +85,24 @@ class Application_Model_DbTable_Auth extends Zend_Db_Table_Abstract
      *
      * @return mixed Value.
      */
-    public function Edit_Auth($id, $fields)
+    public function Edit_Offers($id, $fields)
     {
         return $this->update($fields, sprintf('id = %d', $id));
     }
 
+    /**
+     * Delete_Offers
+     * 
+     * @param mixed $id ID.
+     *
+     * @access public
+     *
+     * @return mixed Value.
+     */
+    public function Delete_Offers($id)
+    {
+        return $this->delete(sprintf('id = %d', $id));
+    }
 
 }
 

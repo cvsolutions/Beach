@@ -5,11 +5,11 @@
 *
 * @uses     Zend_Controller_Action
 *
-* @category Category
-* @package  Package
-* @author    <>
-* @license  
-* @link     
+* @category Settings
+* @package  Spiaggia Online
+* @author   Concetto Vecchio <info@cvsolutions.it>
+* @license  GPL
+* @link     http://www.gnu.org/licenses/gpl.html
 */
 class SettingsController extends Zend_Controller_Action
 {
@@ -45,7 +45,7 @@ class SettingsController extends Zend_Controller_Action
      */
     public function indexAction()
     {
-		$this->view->html_form = $this->_form->login();
+		$this->view->html_form = $this->_form->Login();
 		$auth = Zend_Auth::getInstance();
 		if($auth->hasIdentity()) $this->redirect('/settings/dashboard');
 		$form_data = $this->getRequest()->getPost();

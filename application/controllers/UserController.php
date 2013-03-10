@@ -15,13 +15,12 @@ class UserController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $this->view->full = $this->_dbAuth->Full_Auth();
+        $this->view->users = $this->_dbAuth->Full_Auth();
     }
 
     public function newAction()
     {
-        $this->view->html_form = $this->_form->new_beach();
-        $this->_form->usermail->addValidator(new Zend_Validate_Db_NoRecordExists('beach_auth', 'usermail'));
+        $this->view->html_form = $this->_form->New_Beach();
         $form_data = $this->getRequest()->getPost();
         $pwd = rand();
 
@@ -30,7 +29,7 @@ class UserController extends Zend_Controller_Action
             if($this->_form->isValid($form_data))
             {
                 $this->_dbAuth->New_Auth(array(
-                    'id'        => rand(11111, 99999),
+                    'id'        => mt_rand(11111, 99999),
                     'fullname'  => $this->_form->getValue('fullname'),
                     'usermail'  => $this->_form->getValue('usermail'),
                     'pwd'       => sha1($pwd),
@@ -67,7 +66,7 @@ class UserController extends Zend_Controller_Action
         $id = $this->_getParam('id', 0);
         $row = $this->_dbAuth->Detail_Auth_Admin($id);
 
-        $this->view->html_form = $this->_form->full_edit_beach();
+        $this->view->html_form = $this->_form->Full_Edit_Beach();
         $this->_form->usermail->addValidator(new Zend_Validate_Db_NoRecordExists(
             'beach_auth',
             'usermail', array(
@@ -120,7 +119,7 @@ class UserController extends Zend_Controller_Action
         $old_pwd = $row['pwd'];
         $row['pwd'] = '';
         
-        $this->view->html_form = $this->_form->edit_beach();
+        $this->view->html_form = $this->_form->Edit_Beach();
         $this->_form->usermail->addValidator(new Zend_Validate_Db_NoRecordExists(
             'beach_auth',
             'usermail', array(
@@ -160,12 +159,3 @@ class UserController extends Zend_Controller_Action
 
 
 }
-
-
-
-
-
-
-
-
-

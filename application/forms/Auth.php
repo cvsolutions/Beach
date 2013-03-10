@@ -27,18 +27,17 @@ class Application_Form_Auth extends Zend_Form
     }
     
     /**
-     * login
+     * Login
      * 
      * @access public
      *
      * @return mixed Value.
      */
-    public function login()
+    public function Login()
     {
         $usermail = new Zend_Form_Element_Text('usermail');
         $usermail->setLabel('Indirizzo Email');
         $usermail->setRequired(true);
-        $usermail->addValidator('NotEmpty');
         $usermail->addValidator('EmailAddress');
         $usermail->setAttrib('class', 'span5');
         $usermail->addFilters(array('StringTrim', 'StripTags'));
@@ -48,7 +47,6 @@ class Application_Form_Auth extends Zend_Form
         $pwd->setLabel('Password');
         $pwd->setDescription('<a href="login/lostpassword">Ripristina Password</a>');
         $pwd->setRequired(true);
-        $pwd->addValidator('NotEmpty');
         $pwd->setAttrib('class', 'span5');
         $pwd->addFilters(array('StringTrim', 'StripTags'));
         $pwd->setDecorators(array('ViewHelper', 'Errors', 'label', array('Description', array('escape' => false, 'tag' => 'p'))));
@@ -65,21 +63,22 @@ class Application_Form_Auth extends Zend_Form
     }
     
     /**
-     * lost_password
+     * Lost_Password
      * 
      * @access public
      *
      * @return mixed Value.
      */
-    public function lost_password()
+    public function Lost_Password()
     {
         $usermail = new Zend_Form_Element_Text('usermail');
         $usermail->setLabel('Indirizzo Email');
         $usermail->setRequired(true);
-        $usermail->addValidator('NotEmpty');
         $usermail->addValidator('EmailAddress');
+        $usermail->setAttrib('class', 'span5');
         $usermail->addFilters(array('StringTrim', 'StripTags'));
         $usermail->setDecorators(array('ViewHelper', 'Errors', 'label'));
+        $usermail->addValidator(new Zend_Validate_Db_RecordExists(array('table' => 'beach_auth', 'field' => 'usermail')));
         
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setLabel('Recupera');
@@ -90,18 +89,17 @@ class Application_Form_Auth extends Zend_Form
     }
 
     /**
-     * new_beach
+     * New_Beach
      * 
      * @access public
      *
      * @return mixed Value.
      */
-    public function new_beach()
+    public function New_Beach()
     {
         $fullname = new Zend_Form_Element_Text('fullname');
         $fullname->setLabel('Stabilimento Balneare');
         $fullname->setRequired(true);
-        $fullname->addValidator('NotEmpty');
         $fullname->addFilters(array('StringTrim', 'StripTags'));
         $fullname->setAttrib('class', 'span5');
         $fullname->setDecorators(array('ViewHelper', 'Errors', 'label'));
@@ -109,11 +107,11 @@ class Application_Form_Auth extends Zend_Form
         $usermail = new Zend_Form_Element_Text('usermail');
         $usermail->setLabel('Indirizzo Email');
         $usermail->setRequired(true);
-        $usermail->addValidator('NotEmpty');
         $usermail->addValidator('EmailAddress');
         $usermail->addFilters(array('StringTrim', 'StripTags'));
         $usermail->setAttrib('class', 'span5');
         $usermail->setDecorators(array('ViewHelper', 'Errors', 'label'));
+        $usermail->addValidator(new Zend_Validate_Db_NoRecordExists('beach_auth', 'usermail'));
         
         $latitude = new Zend_Form_Element_Text('latitude');
         $latitude->setLabel('Google Maps (Latitudine)');
@@ -132,18 +130,17 @@ class Application_Form_Auth extends Zend_Form
     }
     
     /**
-     * full_edit_beach
+     * Full_Edit_Beach
      * 
      * @access public
      *
      * @return mixed Value.
      */
-    public function full_edit_beach()
+    public function Full_Edit_Beach()
     {
         $fullname = new Zend_Form_Element_Text('fullname');
         $fullname->setLabel('Stabilimento Balneare');
         $fullname->setRequired(true);
-        $fullname->addValidator('NotEmpty');
         $fullname->addFilters(array('StringTrim', 'StripTags'));
         $fullname->setAttrib('class', 'span5');
         $fullname->setDecorators(array('ViewHelper', 'Errors', 'label'));
@@ -151,7 +148,6 @@ class Application_Form_Auth extends Zend_Form
         $address = new Zend_Form_Element_Text('address');
         $address->setLabel('Indirizzo');
         $address->setRequired(true);
-        $address->addValidator('NotEmpty');
         $address->addFilters(array('StringTrim', 'StripTags'));
         $address->setAttrib('class', 'span5');
         $address->setDecorators(array('ViewHelper', 'Errors', 'label'));
@@ -159,14 +155,12 @@ class Application_Form_Auth extends Zend_Form
         $phone = new Zend_Form_Element_Text('phone');
         $phone->setLabel('Numero di telefono');
         $phone->setRequired(true);
-        $phone->addValidator('NotEmpty');
         $phone->addFilters(array('StringTrim', 'StripTags'));
         $phone->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $usermail = new Zend_Form_Element_Text('usermail');
         $usermail->setLabel('Indirizzo Email');
         $usermail->setRequired(true);
-        $usermail->addValidator('NotEmpty');
         $usermail->addValidator('EmailAddress');
         $usermail->addFilters(array('StringTrim', 'StripTags'));
         $usermail->setAttrib('class', 'span5');
@@ -188,26 +182,23 @@ class Application_Form_Auth extends Zend_Form
         $umbrellas = new Zend_Form_Element_Text('umbrellas');
         $umbrellas->setLabel('Numero di ombrelloni');
         $umbrellas->setRequired(true);
-        $umbrellas->addValidator('NotEmpty');
         $umbrellas->addFilters(array('StringTrim', 'StripTags'));
         $umbrellas->setDecorators(array('ViewHelper', 'Errors', 'label'));
         
         $rows = new Zend_Form_Element_Text('rows');
         $rows->setLabel('Numero di file');
         $rows->setRequired(true);
-        $rows->addValidator('NotEmpty');
         $rows->addFilters(array('StringTrim', 'StripTags'));
         $rows->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $policy = new Zend_Form_Element_Textarea('policy');
         $policy->setLabel('Politiche di pagamento & penali');
         $policy->setAttrib('class', 'span7');
+        $policy->setAttrib('rows', '10');
         $policy->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $status = new Zend_Form_Element_Select('status');
         $status->setLabel('Account');
-        $status->setRequired(true);
-        $status->addValidator('NotEmpty');
         $status->addMultiOptions(array(0 => 'Sospeso', 1 => 'Attivo'));
         $status->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
@@ -220,18 +211,17 @@ class Application_Form_Auth extends Zend_Form
     }
     
     /**
-     * edit_beach
+     * Edit_Beach
      * 
      * @access public
      *
      * @return mixed Value.
      */
-    public function edit_beach()
+    public function Edit_Beach()
     {
         $fullname = new Zend_Form_Element_Text('fullname');
         $fullname->setLabel('Stabilimento Balneare');
         $fullname->setRequired(true);
-        $fullname->addValidator('NotEmpty');
         $fullname->setAttrib('class', 'span5');
         $fullname->addFilters(array('StringTrim', 'StripTags'));
         $fullname->setDecorators(array('ViewHelper', 'Errors', 'label'));
@@ -239,7 +229,6 @@ class Application_Form_Auth extends Zend_Form
         $address = new Zend_Form_Element_Text('address');
         $address->setLabel('Indirizzo');
         $address->setRequired(true);
-        $address->addValidator('NotEmpty');
         $address->setAttrib('class', 'span5');
         $address->addFilters(array('StringTrim', 'StripTags'));
         $address->setDecorators(array('ViewHelper', 'Errors', 'label'));
@@ -247,14 +236,12 @@ class Application_Form_Auth extends Zend_Form
         $phone = new Zend_Form_Element_Text('phone');
         $phone->setLabel('Numero di telefono');
         $phone->setRequired(true);
-        $phone->addValidator('NotEmpty');
         $phone->addFilters(array('StringTrim', 'StripTags'));
         $phone->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $usermail = new Zend_Form_Element_Text('usermail');
         $usermail->setLabel('Indirizzo Email');
         $usermail->setRequired(true);
-        $usermail->addValidator('NotEmpty');
         $usermail->addValidator('EmailAddress');
         $usermail->setAttrib('class', 'span5');
         $usermail->addFilters(array('StringTrim', 'StripTags'));
@@ -272,7 +259,6 @@ class Application_Form_Auth extends Zend_Form
         $umbrellas = new Zend_Form_Element_Text('umbrellas');
         $umbrellas->setLabel('Numero di ombrelloni');
         $umbrellas->setRequired(true);
-        $umbrellas->addValidator('NotEmpty');
         $umbrellas->addFilters(array('StringTrim', 'StripTags'));
         $umbrellas->setAttrib('class', 'five');
         $umbrellas->setDecorators(array('ViewHelper', 'Errors', 'label'));
@@ -280,13 +266,14 @@ class Application_Form_Auth extends Zend_Form
         $rows = new Zend_Form_Element_Text('rows');
         $rows->setLabel('Numero di file');
         $rows->setRequired(true);
-        $rows->addValidator('NotEmpty');
         $rows->addFilters(array('StringTrim', 'StripTags'));
         $rows->setDecorators(array('ViewHelper', 'Errors', 'label'));
         
         $policy = new Zend_Form_Element_Textarea('policy');
         $policy->setLabel('Politiche di pagamento & penali');
+        $policy->setRequired(true);
         $policy->setAttrib('class', 'span7');
+        $policy->setAttrib('rows', '10');
         $policy->setDecorators(array('ViewHelper', 'Errors', 'label'));
         
         $submit = new Zend_Form_Element_Submit('submit');

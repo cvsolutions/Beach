@@ -19,17 +19,19 @@
 				<tr>
 					<th>Modifica</th>
 					<th>Cancella</th>
+					<th>ID</th>
 					<th>Stabilimento Balneare</th>
 					<th>Account</th>
 					<th>Registrazione</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($this->full as $row): ?>
+				<?php foreach ($this->users as $row): ?>
 				<tr>
 					<td><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'fulledit', 'id' => $row['id'])); ?>" class="btn">Modifica</a></td>
 					<td><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'delete', 'id' => $row['id'])); ?>" class="btn">Cancella</a></td>
-					<td><?php echo $row['fullname']; ?></td>
+					<td><?php echo $row['id']; ?></td>
+					<td><?php echo $this->escape($row['fullname']); ?></td>
 					<td><img src="/img/<?php echo $row['status']; ?>.png" alt=""></td>
 					<td><?php echo $row['entry']; ?></td>
 				</tr>

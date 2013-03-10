@@ -4,11 +4,11 @@
 *
 * @uses     Zend_Controller_Plugin_Abstract
 *
-* @category Category
-* @package  Package
-* @author    <>
-* @license  
-* @link     
+* @category Send Mail
+* @package  Spiaggia Online
+* @author   Concetto Vecchio <info@cvsolutions.it>
+* @license  GPL
+* @link     http://www.gnu.org/licenses/gpl.html
 */
 class Plugin_Mail extends Zend_Controller_Plugin_Abstract
 {
@@ -39,7 +39,7 @@ class Plugin_Mail extends Zend_Controller_Plugin_Abstract
 		$mail->setBodyHtml($TPL);
 		$mail->setFrom('info@pippo.it');
 		$mail->addTo($params['email'] );
-		$mail->setReplyTo($params['reply']);
+		// $mail->setReplyTo($params['reply']);
 		$mail->setSubject($params['subject']);
 		return $mail->send();
 	}
