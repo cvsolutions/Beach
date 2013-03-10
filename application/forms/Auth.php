@@ -184,12 +184,6 @@ class Application_Form_Auth extends Zend_Form
         $umbrellas->setRequired(true);
         $umbrellas->addFilters(array('StringTrim', 'StripTags'));
         $umbrellas->setDecorators(array('ViewHelper', 'Errors', 'label'));
-        
-        $rows = new Zend_Form_Element_Text('rows');
-        $rows->setLabel('Numero di file');
-        $rows->setRequired(true);
-        $rows->addFilters(array('StringTrim', 'StripTags'));
-        $rows->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $policy = new Zend_Form_Element_Textarea('policy');
         $policy->setLabel('Politiche di pagamento & penali');
@@ -207,7 +201,7 @@ class Application_Form_Auth extends Zend_Form
         $submit->setLabel('Salva');
         $submit->setDecorators(array('ViewHelper', array('HtmlTag', array('tag' => 'p'))));
 
-        return $this->addElements(array($fullname, $address, $phone, $usermail, $domain, $latitude, $longitude, $umbrellas, $rows, $policy, $status, $submit));
+        return $this->addElements(array($fullname, $address, $phone, $usermail, $domain, $latitude, $longitude, $umbrellas, $policy, $status, $submit));
     }
     
     /**
@@ -263,12 +257,6 @@ class Application_Form_Auth extends Zend_Form
         $umbrellas->setAttrib('class', 'five');
         $umbrellas->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
-        $rows = new Zend_Form_Element_Text('rows');
-        $rows->setLabel('Numero di file');
-        $rows->setRequired(true);
-        $rows->addFilters(array('StringTrim', 'StripTags'));
-        $rows->setDecorators(array('ViewHelper', 'Errors', 'label'));
-        
         $policy = new Zend_Form_Element_Textarea('policy');
         $policy->setLabel('Politiche di pagamento & penali');
         $policy->setRequired(true);
@@ -281,7 +269,7 @@ class Application_Form_Auth extends Zend_Form
         $submit->setLabel('Salva');
         $submit->setDecorators(array('ViewHelper', array('HtmlTag', array('tag' => 'p'))));
 
-        return $this->addElements(array($fullname, $address, $phone, $usermail, $pwd, $domain, $umbrellas, $rows, $policy, $submit));
+        return $this->addElements(array($fullname, $address, $phone, $usermail, $pwd, $domain, $umbrellas, $policy, $submit));
     }
 
 

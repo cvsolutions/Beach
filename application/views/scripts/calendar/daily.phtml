@@ -3,10 +3,41 @@
 <?php echo $this->render('global/topbar_admin.phtml'); ?>
 
 <div class="row">
-	<div class="twelve columns">
-	    <h1 class="subheader">Disponibilit&agrave; giornaliera</h1>
-	    <p>...</p>
-	    <hr />
+	<div class="span6">
+		<h1>Disponibilit&agrave; giornaliera</h1>
+		<p>...</p>
+		<hr />
+	</div>
+	<div class="span6">
+		<div class="btn-group pull-right">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Cambia mese <span class="caret"></span></a>
+			<ul class="dropdown-menu">
+				<li><a href="">Test</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="span12">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Ombrelloni</th>
+					<th>01</th>
+					<th>02</th>
+					<th>03</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Ombrellone #1</td>
+					<td><span class="badge badge-warning">99</span></td>
+					<td>data</td>
+					<td>data</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
 

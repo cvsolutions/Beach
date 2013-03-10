@@ -4,7 +4,7 @@ class OffersController extends Zend_Controller_Action
 {
     private $_form;
     private $_identity;
-    private $_confirm = 'OK';
+    private $_confirm = 'Operazione completata con successo';
     
     public function init()
     {

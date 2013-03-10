@@ -44,12 +44,12 @@ class Application_Form_Offers extends Zend_Form
         
         $from_date = new Zend_Form_Element_Text('from_date');
         $from_date->setLabel('Data di inizio');
-        $from_date->setAttrib('class', '');
+        $from_date->setAttrib('class', 'calendar');
         $from_date->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $to_date = new Zend_Form_Element_Text('to_date');
         $to_date->setLabel('Data fine');
-        $to_date->setAttrib('class', '');
+        $to_date->setAttrib('class', 'calendar');
         $to_date->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $description = new Zend_Form_Element_Textarea('description');
@@ -99,12 +99,12 @@ class Application_Form_Offers extends Zend_Form
         
         $from_date = new Zend_Form_Element_Text('from_date');
         $from_date->setLabel('Data di inizio');
-        $from_date->setAttrib('class', '');
+        $from_date->setAttrib('class', 'calendar');
         $from_date->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $to_date = new Zend_Form_Element_Text('to_date');
         $to_date->setLabel('Data fine');
-        $to_date->setAttrib('class', '');
+        $to_date->setAttrib('class', 'calendar');
         $to_date->setDecorators(array('ViewHelper', 'Errors', 'label'));
 
         $description = new Zend_Form_Element_Textarea('description');

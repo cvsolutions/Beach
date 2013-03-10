@@ -1,7 +1,7 @@
 <?php $this->layout()->setLayout('email'); ?>
 
 <div class="row">
-	<div class="twelve columns">
+	<div class="span12">
 		<p>Gentile <?php echo $this->escape($this->params['fullname']); ?>, ecco le credenziali per accedere al pannello di controllo del suo Booking.</p>
 		<ul>
 			<li><a href="<?php echo $this->serverUrl(); ?><?php echo $this->url(array('controller' => 'login', 'action' => 'index')); ?>"></a><?php echo $this->serverUrl(); ?><?php echo $this->url(array('controller' => 'login', 'action' => 'index')); ?></li>
